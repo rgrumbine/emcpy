@@ -1,6 +1,6 @@
 """
-Creating a simple line plot
----------------------------
+Line Plot
+---------
 
 Below is an example of how to plot a basic
 line plot using EMCPy's plotting method.
@@ -29,12 +29,12 @@ def main():
     # Create plot object and add features
     plot1 = CreatePlot()
     plot1.plot_layers = [lp]
-    plot1.add_title('Test Line Plot')
+    plot1.add_title('Line Plot')
     plot1.add_xlabel('X Axis Label')
     plot1.add_ylabel('Y Axis Label')
     plot1.add_legend(loc='upper right')
 
-    # Create figure and save as png
+    # Create figure
     fig = CreateFigure()
     fig.plot_list = [plot1]
     fig.create_figure()

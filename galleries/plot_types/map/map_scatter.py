@@ -1,11 +1,11 @@
 """
-Creating a map plot with scatter data
--------------------------------------
+Scatter Map Plot
+----------------
 
-The following example plots scatter data
-on a map plot over a CONUS domain. This
-example also shows how to annotate stats
-on the plot.
+Below is an example of how to plot
+scatter data on a map plot using EMCPy's
+plotting method.
+
 """
 
 import numpy as np

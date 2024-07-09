@@ -10,7 +10,8 @@ EMCPy
     :hidden:
 
     getting_started/index
-    gallery/index
+    plot_types/index
+    examples/index
     installing
 
 

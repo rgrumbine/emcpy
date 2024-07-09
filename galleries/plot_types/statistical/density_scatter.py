@@ -1,6 +1,6 @@
 """
-Creating a Density Scatter Plot
--------------------------------
+Density Scatter Plot
+--------------------
 
 The following example shows how to create
 a density scatter plot.
@@ -26,7 +26,7 @@ def main():
     # Create plot object and add features
     plot1 = CreatePlot()
     plot1.plot_layers = [sctr1]
-    plot1.add_title(label='Test Density Scatter Plot')
+    plot1.add_title(label='Density Scatter Plot')
     plot1.add_xlabel(xlabel='X Axis Label')
     plot1.add_ylabel(ylabel='Y Axis Label')
     plot1.add_legend()

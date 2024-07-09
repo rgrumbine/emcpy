@@ -17,7 +17,7 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent.resolve()))
 
 import matplotlib
-from sphinx_gallery.sorting import ExampleTitleSortKey, ExplicitOrder
+from sphinx_gallery.sorting import ExplicitOrder
 
 import emcpy
 
@@ -45,24 +45,40 @@ extensions = [
 
 
 # Sphinx gallery configuration
+# gallery_order.py from the sphinxext folder provides the classes that
+# allow custom ordering of sections and subsections of the gallery
+from sphinxext.gallery_order import (
+    sectionorder as gallery_order_sectionorder,
+    subsectionorder as gallery_order_subsectionorder)
+
+# Create gallery dirs
+gallery_dirs = ["examples", "plot_types"]
+example_dirs = []
+for gd in gallery_dirs:
+    gd = gd.replace('gallery', 'examples')
+    example_dirs += [f'../galleries/{gd}']
+
+# Sphinx gallery configuration
 subsection_order = ExplicitOrder([
-    '../examples/line_plots',
-    '../examples/scatter_plots',
-    '../examples/histograms',
-    '../examples/map_plots'
+    '../galleries/plot_types/basic',
+    '../galleries/plot_types/statistical',
+    '../galleries/plot_types/gridded',
+    '../galleries/plot_types/map',
+    '../galleries/examples/line_plots',
+    '../galleries/examples/scatter_plots',
+    '../galleries/examples/histograms',
+    '../galleries/examples/map_plots'
 ])
 
 sphinx_gallery_conf = {
     'capture_repr': (),
     'filename_pattern': '^((?!skip_).)*$',
-    'examples_dirs': ['../examples'],   # path to example scripts
-    'gallery_dirs': ['gallery'],  # path to where to save gallery generated output
+    'examples_dirs': ['../galleries/examples', '../galleries/plot_types'],
+    'gallery_dirs': ['examples', 'plot_types'],  # path to where to save gallery generated output
     'backreferences_dir': '../build/backrefs',
     'subsection_order': subsection_order,
-    'within_subsection_order': ExampleTitleSortKey,
-    'matplotlib_animations': True,
+    'matplotlib_animations': True
 }
-
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -70,7 +86,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb']
 
 
 # -- Options for HTML output -------------------------------------------------

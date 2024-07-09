@@ -1,9 +1,11 @@
 """
-Create a map plot with gridded data
------------------------------------
+Gridded Map Plot
+----------------
 
-The following example plots gridded data over
-a CONUS domain.
+Below is an example of how to plot
+gridded data on a map plot using EMCPy's
+plotting method.
+
 """
 
 import numpy as np
